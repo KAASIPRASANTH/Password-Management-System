@@ -1,0 +1,74 @@
+body{
+    background-color: #eeeeee;
+}
+
+a{
+    color: #fff !important;
+}
+
+textarea{
+    resize: none;
+}
+
+
+/* Classes */
+.page_container{
+    padding: 2% 15%;
+}
+
+/* Navbar */
+.navbar__style{
+    background-color: #46244C;
+}
+
+
+/*Home page*/
+.quotes-home-icon{
+    color: #46244c;
+    font-size: 3rem;
+}
+.register__btn{
+    border: 1px solid #46244c;
+    color: #46244c !important;
+}
+.purple__btn{
+    background-color: #46244c;
+    color: #FFF;
+}
+.purple__btn:hover{
+    background-color: #62256c !important;
+    color: #FFF !important;
+}
+.register__btn:hover{
+    border: 1px solid #62256c !important;
+}
+
+
+/*Quotes Page*/
+.quote_content{
+    border: 5px solid #eee;
+    border-radius: 10px;
+    color: #FFF;
+    -webkit-text-stroke: 0.5px #333;
+}
+
+.quote_text{
+    height: 220px;
+    font-weight: 600;
+}
+
+
+
+/* Media Queries */
+@media screen and (min-width:991px) {
+    .page__container{
+        padding: 2% 7%;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .navbar__container{
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}

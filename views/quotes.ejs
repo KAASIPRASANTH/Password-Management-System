@@ -1,0 +1,33 @@
+<%-include("partials/header.ejs") %>
+<%-include("partials/navbar.ejs") %>
+
+<div class="page_container">
+
+    <div class="row">
+        <div class="col-md-6 col-lg-4 col-xl-3 col-xxl-2 quote_content p-0">
+            <p class="p-2 m-0 d-flex align-items-center justify-content-center text-center lh-sm fs-5 quoate-text" >
+                Lorem ipsum dolor sit amet.
+            </p>
+            <div class="quote-card_bottom d-flex justify-content-between px-2">
+                <div class="quote-date">
+                    <i class="fa-regular fa-clock"></i>
+                    <span class="time_publish">today</span>
+                </div>
+                <div class = "quote-likes d-flex">
+                    <form action="/quotes/like" method="post">
+                        <button type="submit" name="likeBtn" class="bg-transparent border-0 text-white">
+                            <i class="fa-reqular fa-heart"></i>
+                        </button>
+                    </form>
+                    <span>12</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<%-include("partials/footer.ejs") %>
+
+

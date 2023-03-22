@@ -1,0 +1,19 @@
+<%-include("partials/header.ejs") %>
+
+<div class="col-md-8 m-auto">
+    <form action="/auth/login" method="post" class="">
+        <h3 class="mb-4">Login</h3>
+        <div class="mb-3">
+            <label for="login-email" class="form-label">Email address</label>
+            <input type="email" name="username" class="form-control" id="register-email" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="login-password" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="register-password" required minlength="6">
+        </div>
+        <button type="submit" class="btn purple__btn">Submit</button>
+    </form>
+</div>
+
+
+<%-include("partials/footer.ejs") %>
