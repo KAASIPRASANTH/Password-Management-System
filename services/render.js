@@ -27,7 +27,7 @@ exports.add_user = (req,res)=>{
     if(req.isAuthenticated()){
         res.render('add_user');
     }else{
-        res.render("register");
+        res.render("index");
     }
 }
 
@@ -41,7 +41,7 @@ exports.update_user = (req,res)=>{
             res.send(err);
         })
     }else{
-        res.render("register");
+        res.render("index");
     }
     //res.render('update_user');
 }

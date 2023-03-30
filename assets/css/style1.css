@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap');
 
 :root{
-    --dark:#2b2d42;
-    --light:#adb5bd;
-    --border:#dee2e6;
-    --border-btn:#edf2f4;
+    --dark:#4c174c;
+    --light:#151414;
+    --border:#0a0a0a;
+    --border-btn:#0e3645;
 }
 
 *{
@@ -56,7 +56,7 @@ a{
 
 .border-shadow{
     border:1px solid var(--border-btn);
-    box-shadow: 1px 3px 10px #e9ecef;
+    box-shadow: 1px 3px 10px #c8aad1;
 }
 
 .text-dark{
@@ -119,7 +119,7 @@ table{
 /*when i click it shows green color in the row part*/
 .table tr:hover{
     background-color: #06d6a0;
-    background-color: #c3e761;
+    background-color: #edf1ef;
 }
 
 .table tr:hover td > a{
