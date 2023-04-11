@@ -3,7 +3,7 @@ var schema = new mongoose.Schema({
     PlatformName:{
         type:String,
         required:true,
-        unique:true
+        unique:false
     },
     email1:{
         type:String,

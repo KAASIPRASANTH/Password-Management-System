@@ -2,8 +2,12 @@
 const router = require('express').Router();
 const passport = require('passport');
 const session = require("express-session");
+
+
 //user Model
 const User = require('../models/User');
+const currentUser = require('../models/current');
+
 
 //create passport local strategy
 passport.use(User.createStrategy());
@@ -22,7 +26,7 @@ passport.deserializeUser(async (id,done)=>{
 });
 
 
-
+var Data;
 
 //register user in DB
 router.post("/auth/register",async(req,res)=>{
@@ -31,6 +35,26 @@ router.post("/auth/register",async(req,res)=>{
         const registerUser = await User.register({username:req.body.username},req.body.password);
         if(registerUser){
             passport.authenticate("local")(req,res,function(){
+
+                
+                const u = new currentUser({
+                    email:req.body.username
+                })
+
+                
+                u
+                .save(u)
+                .then(data=>{
+                    console.log("done");
+                })
+                .catch(err=>{
+                    res.status(500).send({
+                        message:err.message||"Some error occured while inserting your data"
+                    });
+                });
+                
+
+
                 res.redirect("/index1"); 
             });
         }else{
@@ -44,14 +68,29 @@ router.post("/auth/register",async(req,res)=>{
 
 //login user
 router.post("/auth/login",async(req,res)=>{
-    
     //create new user obj
     const user = new User({
         username:req.body.username,
         password:req.body.password
     });
-    //req.session = {username:req.body.username};
-    //using passport we just checking crt or not
+    const u = new currentUser({
+        email:req.body.username
+    })
+
+
+    u
+        .save(u)
+        .then(data=>{
+            console.log("done");
+        })
+        .catch(err=>{
+            res.status(500).send({
+                message:err.message||"Some error occured while inserting your data"
+            });
+        });
+
+
+
     req.login(user,(err)=>{
         if(err){
             console.log(err);
@@ -66,6 +105,13 @@ router.post("/auth/login",async(req,res)=>{
 
 
 router.get('/auth/logout',(req,res)=>{
+    currentUser.remove(function(err, p){
+        if(err){ 
+            throw err;
+        } else{
+            console.log('No Of Documents deleted:' + p);
+        }
+    });
     req.logout();
     res.redirect('/');
 });

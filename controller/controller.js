@@ -1,5 +1,5 @@
 var Userdb = require('../models/model');
-
+var currentUser = require('../models/current');
 
 
 
@@ -58,6 +58,22 @@ exports.find = (req,res)=>{
             })
     }else{
         //for getting multiple user
+        
+        currentUser.find().limit(1)
+        .then(user=>{
+            Userdb.find({email1:user[0].email})
+            .then(user=>{
+                res.send(user)
+            })
+            .catch(err=>{
+                res.status(500).send({message:err.message || "Error Occurred while retrieving user information"})
+            })
+        })
+        .catch(err=>{
+            res.status(500).send({message:err.message || "Error Occurred while retrieving user information"})
+        })
+        
+        /*
         Userdb.find()
         .then(user=>{
             res.send(user)
@@ -65,6 +81,7 @@ exports.find = (req,res)=>{
         .catch(err=>{
             res.status(500).send({message:err.message || "Error Occurred while retrieving user information"})
         })
+        */
     }
 }
 

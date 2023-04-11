@@ -1,8 +1,8 @@
 const axios = require('axios');
 const session = require("express-session");
+
+
 exports.homeRoutes = (req,res)=>{
-    console.log(req.body.username);
-    //console.log(req.session.username);
     if(req.isAuthenticated()){
         //Make a get request to/api/users
         try {
