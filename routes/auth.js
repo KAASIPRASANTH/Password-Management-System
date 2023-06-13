@@ -32,7 +32,7 @@ var Data;
 router.post("/auth/register",async(req,res)=>{
     try {
         //register user
-        const registerUser = await User.register({username:req.body.username},req.body.password);
+        const registerUser = User.register({ username: req.body.username }, req.body.password);
         if(registerUser){
             passport.authenticate("local")(req,res,function(){
 
